@@ -1,2 +1,2 @@
 # Palindrome-checker
-A palindrome, is a word, phrase, number, or other sequence of characters which reads the same backward as forward, such as madam or “taco cat” or race car.
+A palindrome, is a word, phrase, number, or other sequence of characters which reads the same backward as forward.
