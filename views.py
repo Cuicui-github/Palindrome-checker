@@ -11,6 +11,7 @@ def isPalindrome(request):
     test_string=string1.lower()
     rev = ''.join(reversed(test_string))
     if (test_string == rev):
-        return render(request,'home.html',{'string':"Yes"})
+        string=r+":Yes"
     else:
-        return render(request,'home.html',{'string':"No"})
+        string=r+"No"
+    return render(request,'home.html',{'string':string})
