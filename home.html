@@ -28,6 +28,64 @@
     
 }
 </style>
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = "{{string}}";
+    var data = [
+	{word:"asd", Palindrome: "No"},
+    {word:"aaa", Palindrome: "Yes"},
+    {word:"asf", Palindrome: "No"}
+];
+ 
+var Word = function (word,Palindrome)
+{
+    this.word = word;
+    this.Palindrome=Palindrome;
+}
+ 
+var history_list = [];
+for (var i = 0; i < data.length; i++)
+{
+    var d = data[i];
+    history_list.push(new Word (d["word"], d["Palindrome"]));
+}
+ 
+
+    var table = document.createElement("table");
+    var tbody = document.createElement("tbody");
+    table.appendChild(tbody);
+
+    var tr = tbody.insertRow (0);
+    var str = "Word,Palindrome".split(",");
+    for (var i = 0; i < str.length; i++)
+    {
+        var th = document.createElement("th");
+        th.innerHTML = str[i];
+        tr.appendChild (th);
+    }
+    for (var i = 0; i < history_list.length; i++)
+    {
+        var tr = tbody.insertRow (tbody.rows.length);
+        var obj = history_list[i];
+        for (var p in obj)
+        {
+            var op = obj[p];
+            
+            {
+                var td = tr.insertCell (tr.cells.length);
+                td.innerHTML = op;
+            }
+            
+        }
+    }
+    document.body.appendChild(table);
+}
+
+    
+
+
+
+</script>
 </head>
 <body>
 <div class="center">
@@ -39,13 +97,17 @@
 </form>
 <button class="button" onclick="myFunction()" >Check</button>
 
-<p id="demo"></p>
 </div>
-<script>
-function myFunction() {
+<h2>History</h2>
 
-    document.getElementById("demo").innerHTML = "{{string}}";
-}
-</script>
+<table style="width:30%">
+  <tr>
+    <th>Word</th>
+    <th>Palindrome</th> 
+  </tr>
+</table>
+<p id="demo"></p>
+
+
 </body>
 </html>
